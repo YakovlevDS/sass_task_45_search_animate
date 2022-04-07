@@ -1,0 +1,144 @@
+@import 'https://fonts.googleapis.com/css?family=Source+Sans+Pro:500';
+$font:'Source Sans Pro',
+sans-serif;
+$primary:#23630a;
+$blue:#4540f1;
+$yellow:#ffe204;
+$red:#ff3628;
+@-webkit-keyframes blink {
+    0%,
+    50%,
+    100% {
+        opacity: 1
+    }
+    25%,
+    75% {
+        opacity: 0
+    }
+}
+
+@keyframes blink {
+    0%,
+    50%,
+    100% {
+        opacity: 1
+    }
+    25%,
+    75% {
+        opacity: 0
+    }
+}
+
+@mixin borderRadius($border-radius) {
+    -webkit-border-radius: $border-radius;
+    -moz-border-radius: $border-radius;
+    -o-border-radius: $border-radius;
+    border-radius: $border-radius;
+}
+
+@mixin transition($args...) {
+    -webkit-transition: $args;
+    -moz-transition: $args;
+    -ms-transition: $args;
+    -o-transition: $args;
+    transition: $args;
+}
+
+@mixin transform($transforms) {
+    -webkit-transform: $transforms;
+    -moz-transform: $transforms;
+    -ms-transform: $transforms;
+    -o-transform: $transforms;
+    transform: $transforms;
+}
+
+@mixin transformOrigin($x, $y) {
+    -webkit-transform-origin: $x $y;
+    -moz-transform-origin: $x $y;
+    -ms-transform-origin: $x $y;
+    -o-transform-origin: $x $y;
+    transform-origin: $x $y;
+}
+
+@mixin translate ($x, $y) {
+    @include transform(translate($x, $y));
+}
+
+@mixin placeholder {
+    &::-webkit-input-placeholder {
+        @content
+    }
+    &:-moz-placeholder {
+        @content
+    }
+    &::-moz-placeholder {
+        @content
+    }
+    &:-ms-input-placeholder {
+        @content
+    }
+}
+
+*,
+*::before,
+*::after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    padding: 0px;
+    margin: 0;
+    font-family: $font;
+    background: #FAFAFA;
+    -webkit-font-smoothing: antialiased;
+}
+
+.flex {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+form {
+    position: relative;
+    input[type="text"] {
+        padding: 10px 14px;
+        @include borderRadius(20px);
+        outline: none;
+        font-size: 1;
+        height: 40px;
+        border: 2px solid $red;
+        background: transparent;
+        width: 40px;
+        color: $red;
+        font-weight: bold;
+        @include transition(all .5s cubic-bezier(0.77, 0, 0.175, 1));
+        &.active {
+            width: 200px;
+            font-size: inherit;
+        }
+    }
+    .search {
+        height: 25px;
+        width: 2px;
+        display: inline-block;
+        background: $red;
+        @include transition(all .5s cubic-bezier(0.77, 0, 0.175, 1));
+        @include borderRadius(2px);
+        @include transform(translate(3px, 34px) rotate(-45deg));
+        &.move {
+            -webkit-animation: blink 3s both .7s infinite;
+            animation: blink 3s both .7s infinite;
+            @include transform(translate(-188px, 6px) rotate(0deg));
+        }
+    }
+}

@@ -1,0 +1,101 @@
+@import 'https://fonts.googleapis.com/css?family=Source+Sans+Pro:500';
+@-webkit-keyframes blink {
+  0%, 50%, 100% {
+    opacity: 1;
+  }
+  25%, 75% {
+    opacity: 0;
+  }
+}
+@keyframes blink {
+  0%, 50%, 100% {
+    opacity: 1;
+  }
+  25%, 75% {
+    opacity: 0;
+  }
+}
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  padding: 0px;
+  margin: 0;
+  font-family: "Source Sans Pro", sans-serif;
+  background: #FAFAFA;
+  -webkit-font-smoothing: antialiased;
+}
+
+.flex {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+form {
+  position: relative;
+}
+form input[type=text] {
+  padding: 10px 14px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -o-border-radius: 20px;
+  border-radius: 20px;
+  outline: none;
+  font-size: 1;
+  height: 40px;
+  border: 2px solid #ff3628;
+  background: transparent;
+  width: 40px;
+  color: #ff3628;
+  font-weight: bold;
+  -webkit-transition: all 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+  -moz-transition: all 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+  -ms-transition: all 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+  -o-transition: all 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+  transition: all 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+}
+form input[type=text].active {
+  width: 200px;
+  font-size: inherit;
+}
+form .search {
+  height: 25px;
+  width: 2px;
+  display: inline-block;
+  background: #ff3628;
+  -webkit-transition: all 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+  -moz-transition: all 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+  -ms-transition: all 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+  -o-transition: all 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+  transition: all 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -o-border-radius: 2px;
+  border-radius: 2px;
+  -webkit-transform: translate(3px, 34px) rotate(-45deg);
+  -moz-transform: translate(3px, 34px) rotate(-45deg);
+  -ms-transform: translate(3px, 34px) rotate(-45deg);
+  -o-transform: translate(3px, 34px) rotate(-45deg);
+  transform: translate(3px, 34px) rotate(-45deg);
+}
+form .search.move {
+  -webkit-animation: blink 3s both 0.7s infinite;
+  animation: blink 3s both 0.7s infinite;
+  -webkit-transform: translate(-188px, 6px) rotate(0deg);
+  -moz-transform: translate(-188px, 6px) rotate(0deg);
+  -ms-transform: translate(-188px, 6px) rotate(0deg);
+  -o-transform: translate(-188px, 6px) rotate(0deg);
+  transform: translate(-188px, 6px) rotate(0deg);
+}
